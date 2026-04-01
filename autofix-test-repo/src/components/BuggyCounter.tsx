@@ -3,9 +3,12 @@ import { useState } from 'react'
 export default function BuggyCounter() {
   const [count, setCount] = useState(0)
 
-  // BUG: This function should increment by 1, but it's empty!
   const handleIncrement = () => {
-    // Missing logic
+    setCount(count + 1);
+  }
+
+  const handleReset = () => {
+    setCount(0);
   }
 
   return (
@@ -14,6 +17,9 @@ export default function BuggyCounter() {
       <p>Current Count: {count}</p>
       <button onClick={handleIncrement} className="bg-blue-500 text-white p-2">
         Increment
+      </button>
+      <button onClick={handleReset} className="bg-red-500 text-white p-2 ml-2">
+        Reset
       </button>
     </div>
   )
